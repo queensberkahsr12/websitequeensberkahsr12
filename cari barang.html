@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk SR12</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #e91e63;
+      --primary-dark: #c2185b;
+      --secondary: #ffc107;
+      --dark: #333;
+      --light: #fff;
+      --gray: #f5f5f5;
+      --border-radius: 12px;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+       --border-color: #f0f0f0;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #e91e63;
+      font-weight: 600;
+      margin: 0 15px;
+      font-family: 'Montserrat', sans-serif;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -4px;
+      left: 0;
+      background-color: #e91e63;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .product-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #e91e63;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .search-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .search-box input {
+      padding: 15px;
+      font-size: 16px;
+      border: 2px solid #fce4ec;
+      border-radius: 10px 0 0 10px;
+      width: 300px;
+    }
+    .search-box button {
+      padding: 15px 25px;
+      background-color: #e91e63;
+      color: #fff;
+      border: none;
+      border-radius: 0 10px 10px 0;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+       border: 2px solid var(--border-color);
+    }
+    .card:hover {
+      transform: translateY(-8px); /* Efek angkat lebih tinggi */
+      box-shadow: 0 15px 35px var(--shadow-medium); /* Bayangan lebih kuat saat hover */
+      border-color: #e91e63; 
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .card:hover img {
+      transform: scale(1.05);
+    }
+    .card h3 {
+      font-size: 18px;
+      margin: 15px;
+      color: #e91e63;
+    }
+    .card p {
+      margin: 0 15px 15px;
+      font-weight: 500;
+    }
+   .btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+    .btn-beli {
+      background: linear-gradient(to right, #e91e63, #c2185b);
+      color: white;
+    }
+    .btn-keranjang {
+      background: linear-gradient(to right, #ffc107, #ff9800);
+      color: #333;
+    }
+    .btn:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+    .not-found {
+      text-align: center;
+      color: red;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .title-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .title-section h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .title-section h1:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary);
+    }
+     @media (max-width: 768px) {
+ @media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+   header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 16px; /* kurangi padding */
+    max-width: 100vw;   /* pastikan tidak melebar */
+  }
+
+  header img {
+    height: 55px;
+    max-width: 90%;     /* agar gambar tidak lebih besar dari layar */
+    margin-bottom: 8px; /* beri jarak kecil dengan nav */
+  }
+
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+ nav a {
+    font-size: 14px !important;
+    margin: 5px 8px !important;
+  }
+
+  .title-section h1 {
+    font-size: 1.6rem;
+  }
+
+  .title-section p {
+    font-size: 0.95rem;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .search-box input {
+    width: 90%;
+    border-radius: 10px;
+  }
+
+  .search-box button {
+    width: 90%;
+    border-radius: 10px;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 15px;
+  }
+
+  .not-found {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+}
+
+}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="queens.jpg" alt="Logo Toko"></a>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="https://wa.me/6281267918160">Kontak</a>
+       <a href="cari barang.html">Produk</a>
+      <a href="keranjang belanja.html"><i class="fas fa-shopping-cart"></i></a>
+    </nav>
+  </header>
+
+  <section class="title-section">
+      <h1>Skincare & Herbal SR12</h1>
+      <p>Temukan produk terbaik untuk perawatan kulit dan kesehatan Anda</p>
+    </section>
+
+  <section class="product-section">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cari produk...">
+      <button onclick="searchItem()">Cari</button>
+    </div>
+    <div class="products" id="productList"></div>
+    <p class="not-found" id="notFound"></p>
+  </section>
+
+  <script>
+    const waNumber = "6281267918160";
+    const productList = document.getElementById("productList");
+    const notFound = document.getElementById("notFound");
+
+    const products = [
+     {
+        nama: "SUSU GO MILKU GOLD",
+        harga: "Rp 146.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku gold.jpg",
+        pesan: "Saya ingin memesan Susu GoMilku Gold"
+    },
+    {
+        nama: "DEODORANT SPRAY PREMIUM",
+        harga: "Rp 73.000",
+        deskripsi: "mengurangi bau badan tidak sedap akibat bakteri sampai dengan 48 jam.",
+        gambar: "deodorant premium.jpg",
+        pesan: "Saya ingin memesan Deodorant Premium"
+    },
+    {
+        nama: "SARI KURMA SR12",
+        harga: "Rp 73.000",
+        deskripsi: "Sari kurma murni penambah energi & stamina.",
+        gambar: "sari kurma.jpg",
+        pesan: "Saya ingin memesan Sari Kurma SR12"
+    },
+    {
+        nama: "SUSU GO MILKU ORIGINAL",
+        harga: "Rp 142.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku original.jpg",
+        pesan: "Saya ingin memesan Susu GoMilku Original"
+    },
+    {
+        nama: "SUSU GO MILKU COKLAT",
+        harga: "Rp 142.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku coklat.jpg",
+        pesan: "Saya ingin memesan Susu GoMilku Coklat"
+    },
+    {
+        nama: "SUSU GO MILKU STRAWBERRY",
+        harga: "Rp 142.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku pink.jpg",
+        pesan: "Saya ingin memesan Susu GoMilku Strawberry"
+    },
+    {
+        nama: "DEODORANT SPRAY",
+        harga: "Rp 52.000",
+        deskripsi: "mengurangi bau badan tidak sedap akibat bakteri sampai dengan 48 jam.",
+        gambar: "deospray.jpg",
+        pesan: "Saya ingin memesan Deodorant Spray"
+    },
+    {
+        nama: "DNA SALMON",
+        harga: "Rp 195.000",
+        deskripsi: "Merupakan paketan rangkaian skincare 4in1 dengan kandungan bahan aktif utama.",
+        gambar: "dna salmon.jpg",
+        pesan: "Saya ingin memesan DNA Salmon"
+    },
+    {
+        nama: "FACIAL WASH COFFEE",
+        harga: "Rp 71.000",
+        deskripsi: "membersihkan wajah dari kotoran, minyak, sisa makeup, dan debu.",
+        gambar: "facial wash coffe.jpg",
+        pesan: "Saya ingin memesan Facial Wash Coffee"
+    },
+    {
+        nama: "FACIAL WASH WITH BULUS",
+        harga: "Rp 68.000",
+        deskripsi: "Pembersih Wajah Kulit Normal Berminyak Flek Hitam Jerawat Komedo.",
+        gambar: "facial wash with bulus.jpg",
+        pesan: "Saya ingin memesan Facial Wash with Bulus"
+    },
+    {
+        nama: "PASTA GIGI CHARCOAL",
+        harga: "Rp 63.000",
+        deskripsi: "membantu menghilangkan bau mulut dan memberikan kesegaran pada mulut.",
+        gambar: "pasta charchoal.jpg",
+        pesan: "Saya ingin memesan Pasta Gigi Charcoal"
+    },
+    {
+        nama: "PASTA GIGI SIWAK & SIRIH",
+        harga: "Rp 63.000",
+        deskripsi: "membantu menghilangkan bau mulut dan memberikan kesegaran pada mulut.",
+        gambar: "pasta siwak besar.jpg",
+        pesan: "Saya ingin memesan Pasta Gigi Siwak & Sirih"
+    },
+    {
+        nama: "ACNE MOIST",
+        harga: "Rp 111.000",
+        deskripsi: "Membantu merawat kulit yang berjerawat, memelihara kelembapan kulit, membantu merawat kulit yang kering dan membantu melindungi kulit dari paparan sinar.",
+        gambar: "acne moist.jpg",
+        pesan: "Saya ingin memesan Acne Moist"
+    },
+    {
+        nama: "ACNE SERUM",
+        harga: "Rp 126.000",
+        deskripsi: "Mengeksfoliasi sel-sel kulit mati.",
+        gambar: "acne serum.jpg",
+        pesan: "Saya ingin memesan Acne Serum"
+    },
+    {
+        nama: "ACNE TONER PREMIUM",
+        harga: "Rp 110.000",
+        deskripsi: "Toner dengan kandungan bahan aktif herbal yang dapat membantu melembapkan, merawat kulit yang berjerawat, membersihkan kotoran dan minyak yang menempel pada.",
+        gambar: "acne toner premium.jpg",
+        pesan: "Saya ingin memesan Acne Toner Premium"
+    },
+    {
+        nama: "ACNE TOTOL",
+        harga: "Rp 69.000",
+        deskripsi: "Totol jerawat yang dapat membantu mencegah timbulnya jerawat.",
+        gambar: "acne totol.jpg",
+        pesan: "Saya ingin memesan Acne Totol"
+    },
+    {
+        nama: "ALORISE SHAMPOO",
+        harga: "Rp 47.000",
+        deskripsi: "Membantu mempercepat pertumbuhan rambut. Mengatasi rambut rontok dan rambut lengket berminyak.",
+        gambar: "alorise shampo.jpg",
+        pesan: "Saya ingin memesan Alorise Shampoo"
+    },
+    {
+        nama: "ALORISE SHAMPOO PUMP",
+        harga: "Rp 100.000",
+        deskripsi: "Membantu mempercepat pertumbuhan rambut. Mengatasi rambut rontok dan rambut lengket berminyak.",
+        gambar: "alorise shampoo pump.jpg",
+        pesan: "Saya ingin memesan Alorise Shampoo Pump"
+    },
+    {
+        nama: "BODY WASH ALOE VERA",
+        harga: "Rp 73.000",
+        deskripsi: "Membersihkan kulit, menyegarkan kulit, melembabkan dan menghaluskan kulit.",
+        gambar: "body wash aloe vera.jpg",
+        pesan: "Saya ingin memesan Body Wash Aloe Vera"
+    },
+    {
+        nama: "BODY WASH BLACK COFFEE 100ml&250ml",
+        harga: "Rp 73.000",
+        deskripsi: "Membersihkan kulit dari debu, kotoran, minyak serta keringat di seluruh badan.",
+        gambar: "body wash black coffe.jpg",
+        pesan: "Saya ingin memesan Body Wash Black Coffee"
+    },
+    {
+        nama: "BRIGHTENING DAY CREAM",
+        harga: "Rp 131.000",
+        deskripsi: "Membantu mencerahkan wajah. Serta melembabkan kulit wajah. Melindungi kulit wajah dari sinar matahari/sinar UV.",
+        gambar: "brightening day cream.jpg",
+        pesan: "Saya ingin memesan Brightening Day Cream"
+    },
+    {
+        nama: "BRIGHTENING NIGHT CREAM",
+        harga: "Rp 131.000",
+        deskripsi: "Membuat kulit wajah tampak cerah. Membantu meregenerasi kulit wajah pada malam hari.",
+        gambar: "brightening night cream.jpg",
+        pesan: "Saya ingin memesan Brightening Night Cream"
+    },
+    {
+        nama: "BUBBLE BATH DAUN BIDARA",
+        harga: "Rp 68.000",
+        deskripsi: "membersihkan, menyegarkan, dan melembapkan kulit tubuh.",
+        gambar: "bubble daun bidara.jpg",
+        pesan: "Saya ingin memesan Bubble Bath Daun Bidara"
+    },
+    {
+        nama: "BULUS SOAP",
+        harga: "Rp 37.000",
+        deskripsi: "membersihkan kulit tetapi juga membantu mengencangkan, melembabkan, dan mencerahkan kulit.",
+        gambar: "bulus soap.jpg",
+        pesan: "Saya ingin memesan Bulus Soap"
+    },
+     {
+        nama: "SUSU GO MILKU GOLD",
+        harga: "Rp 142.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku gold.jpg",
+        pesan: "Saya ingin memesan Susu GoMilku Gold"
+    },
+    {
+        nama: "SHEET MASK ACNE",
+        harga: "Rp 63.000",
+        deskripsi: "Menghilangkan noda hitam pada wajah. Menyerap minyak berlebih pada wajah. Mencerahkan dan menutrisi kulit wajah. Melindungi kulit dari paparan sinar matahari.",
+        gambar: "sheet mask acne.jpg",
+        pesan: "Saya ingin memesan Sheet Mask Acne"
+    },
+    {
+        nama: "PASTA GIGI CHARCOAL",
+        harga: "Rp 46.000",
+        deskripsi: "Membantu menghilangkan bau mulut dan memberikan kesegaran pada mulut.",
+        gambar: "charcoal kecil.jpg",
+        pesan: "Saya ingin memesan Pasta Gigi Charcoal"
+    },
+    {
+        nama: "COCONUT FRESH SHAMPOO",
+        harga: "Rp 47.000",
+        deskripsi: "Membersihkan rambut dan kulit kepala.",
+        gambar: "coconut fresh shampo.jpg",
+        pesan: "Saya ingin memesan Coconut Fresh Shampoo"
+    },
+    {
+        nama: "COCONUT FRESH SHAMPOO PUMP",
+        harga: "Rp 100.000",
+        deskripsi: "Membersihkan rambut dan kulit kepala.",
+        gambar: "coconut fresh shampoo pump.jpg",
+        pesan: "Saya ingin memesan Coconut Fresh Shampoo Pump"
+    },
+    {
+        nama: "COFFEE SOAP",
+        harga: "Rp 33.000",
+        deskripsi: "Membantu Mengatasi wajah kusam. Menghilangkan flek hitam dan noda bekas jerawat.",
+        gambar: "coffe soap.jpg",
+        pesan: "Saya ingin memesan Coffee Soap"
+    },
+    {
+        nama: "COFFEE MASK",
+        harga: "Rp 89.000",
+        deskripsi: "membersihkan pori-pori dan meningkatkan pergantian sel kulit agar tampilan wajah menjadi lebih segar.",
+        gambar: "coffemask.jpg",
+        pesan: "Saya ingin memesan Coffee Mask"
+    },
+    {
+        nama: "COMPACT POWDER NATURAL",
+        harga: "Rp 105.000",
+        deskripsi: "Menutup bekas jerawat & flek yang tidak merata di wajah. Membantu melindungi kulit dari paparan sinar matahari.",
+        gambar: "compact powder natural.jpg",
+        pesan: "Saya ingin memesan Compact Powder Natural"
+    },
+    {
+        nama: "COMPACT POWDER PINK",
+        harga: "Rp 105.000",
+        deskripsi: "Menutup bekas jerawat & flek yang tidak merata di wajah. Membantu melindungi kulit dari paparan sinar matahari.",
+        gambar: "compact powder pink.jpg",
+        pesan: "Saya ingin memesan Compact Powder Pink"
+    },
+    {
+        nama: "SR12 PERFECT CUSHION IVORY",
+        harga: "Rp 178.000",
+        deskripsi: "Membantu menutupi dan meratakan warna kulit, membantu menahan minyak, membantu hasil akhir demi matte yang natural.",
+        gambar: "cushion ivory.jpg",
+        pesan: "Saya ingin memesan SR12 Perfect Cushion Ivory"
+    },
+    {
+        nama: "SR12 PERFECT CUSHION NATURAL",
+        harga: "Rp 178.000",
+        deskripsi: "Membantu menutupi dan meratakan warna kulit, membantu menahan minyak, membantu hasil akhir demi matte yang natural.",
+        gambar: "cushion natural.jpg",
+        pesan: "Saya ingin memesan SR12 Perfect Cushion Natural"
+    },
+    {
+        nama: "DAILY COVER SHEER NATURAL",
+        harga: "Rp 115.000",
+        deskripsi: "Menutup bekas jerawat & flek yang tidak merata di wajah. Menjaga kelembaban kulit dan membantu mengontrol minyak berlebih.",
+        gambar: "daily cover natural.jpg",
+        pesan: "Saya ingin memesan Daily Cover Sheer Natural"
+    },
+    {
+        nama: "DAILY COVER SHEER BEIGE",
+        harga: "Rp 115.000",
+        deskripsi: "Menutup bekas jerawat & flek yang tidak merata di wajah. Menjaga kelembaban kulit dan membantu mengontrol minyak berlebih.",
+        gambar: "daily cover sheer beige.jpg",
+        pesan: "Saya ingin memesan Daily Cover Sheer Beige"
+    },
+    {
+        nama: "DAILY COVER SHEER PINK",
+        harga: "Rp 115.000",
+        deskripsi: "Menutup bekas jerawat & flek yang tidak merata di wajah. Menjaga kelembaban kulit dan membantu mengontrol minyak berlebih.",
+        gambar: "daily cover sheer pink.jpg",
+        pesan: "Saya ingin memesan Daily Cover Sheer Pink"
+    },
+    {
+        nama: "KRASNY DAY CREAM MARKISA",
+        harga: "Rp 89.000",
+        deskripsi: "meremajakan sel-sel kulit menghaluskan & mencerahkan kulit secara bertahap mencegah penuaan dini.",
+        gambar: "day cream markisa.jpg",
+        pesan: "Saya ingin memesan Krasny Day Cream Markisa"
+    },
+    {
+        nama: "SPOT ESSENCE DAY CREAM",
+        harga: "Rp 147.000",
+        deskripsi: "Membantu mencerahkan kulit, melembabkan kulit, menyamarkan noda hitam, serta membantu mengatasi jerawat.",
+        gambar: "esence day cream.jpg",
+        pesan: "Saya ingin memesan Spot Essence Day Cream"
+    },
+    {
+        nama: "SPOT ESSENCE NIGHT CREAM",
+        harga: "Rp 147.000",
+        deskripsi: "Membantu mencerahkan kulit, melembabkan kulit, menyamarkan noda hitam, serta membantu mengatasi jerawat.",
+        gambar: "esence night cream.jpg",
+        pesan: "Saya ingin memesan Spot Essence Night Cream"
+    },
+    {
+        nama: "SR12 EYE BROW DARK BROWN",
+        harga: "Rp 79.000",
+        deskripsi: "Membantu memberikan warna dan mempercantik alis.",
+        gambar: "eye brow dark brown.jpg",
+        pesan: "Saya ingin memesan SR12 Eye Brow Dark Brown"
+    },
+    {
+        nama: "FACIAL FOAM GLUTATION",
+        harga: "Rp 79.000",
+        deskripsi: "membersihkan wajah dari kotoran, minyak, dan sisa makeup, sekaligus membantu mencerahkan, melembapkan, dan meremajakan kulit.",
+        gambar: "facial foam glutation.jpg",
+        pesan: "Saya ingin memesan Facial Foam Glutation"
+    },
+    {
+        nama: "FACIAL WASH HONEY",
+        harga: "Rp 63.000",
+        deskripsi: "menghilangkan kotoran, minyak, dan sisa makeup yang dapat menyumbat pori-pori serta menyebabkan berbagai masalah kulit.",
+        gambar: "facial wash honey.jpg",
+        pesan: "Saya ingin memesan Facial Wash Honey"
+    },
+    {
+        nama: "GLOW GLASS SKIN GEL",
+        harga: "Rp 205.000",
+        deskripsi: "Membantu meratakan warna kulit dan mencerahkan kulit.",
+        gambar: "glow skin gel.jpg",
+        pesan: "Saya ingin memesan Glow Glass Skin Gel"
+    },
+    {
+        nama: "SUSU GOMILKU COKLAT SACHET",
+        harga: "Rp 230.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku coklat sachet.jpg",
+        pesan: "Saya ingin memesan Susu Gomilku Coklat Sachet"
+    },
+    {
+        nama: "SUSU GOMILKU ORIGINAL SACHET",
+        harga: "Rp 230.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku original sachet.jpg",
+        pesan: "Saya ingin memesan Susu Gomilku Original Sachet"
+    },
+    {
+        nama: "SUSU GOMILKU GOLD SACHET",
+        harga: "Rp 230.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "Gomilku gold sachet.jpg",
+        pesan: "Saya ingin memesan Susu Gomilku Gold Sachet"
+    },
+    {
+        nama: "SUSU GOMILKU STRAWBERRY SACHET",
+        harga: "Rp 230.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku pink sachet.jpg",
+        pesan: "Saya ingin memesan Susu Gomilku Strawberry Sachet"
+    },
+    {
+        nama: "HABBATUSSAUDA",
+        harga: "Rp 92.000",
+        deskripsi: "meningkatkan daya tahan tubuh, membantu mengontrol kadar gula darah, serta menjaga kesehatan jantung dan tekanan darah.",
+        gambar: "habbatussauda.jpg",
+        pesan: "Saya ingin memesan Habbatussauda"
+    },
+    {
+        nama: "HAIR CONDITIONER",
+        harga: "Rp 82.000",
+        deskripsi: "mengunci kelembapan rambut, menghaluskan dan mengurai rambut kusut, serta memulihkan rambut yang rusak.",
+        gambar: "hair conditioner.jpg",
+        pesan: "Saya ingin memesan Hair Conditioner"
+    },
+    {
+        nama: "HAND GEL APPLE 60 ML",
+        harga: "Rp 37.000",
+        deskripsi: "Membantu melembapkan kulit tangan serta membantu membersihkan tangan.",
+        gambar: "hand gel apple 60.jpg",
+        pesan: "Saya ingin memesan Hand Gel Apple 60 ML"
+    },
+    {
+        nama: "HANDSPRAY STRAWBERRY",
+        harga: "Rp 37.000",
+        deskripsi: "Membantu mengurangi keringat berlebih dan membantu mengurangi bau badan tidak sedap akibat bakteri.",
+        gambar: "handspray pink.jpg",
+        pesan: "Saya ingin memesan Handspray Strawberry"
+    },
+    {
+        nama: "HONEY HERBAL SOAP",
+        harga: "Rp 33.000",
+        deskripsi: "Mencegah timbulnya jerawat. Membantu membersihkan dan mencerahkan kulit.",
+        gambar: "honey herbal soap.jpg",
+        pesan: "Saya ingin memesan Honey Herbal Soap"
+    },
+    {
+        nama: "LEMONKUH 250ml SR12",
+        harga: "Rp 114.000",
+        deskripsi: "membantu menurunkan berat badan, meningkatkan daya tahan tubuh, mencegah sembelit, menjaga kesehatan kulit, dan berpotensi mencegah penyakit jantung serta batu ginja.",
+        gambar: "lemonkuh.jpg",
+        pesan: "Saya ingin memesan Lemonkuh 250ml SR12"
+    },
+    {
+        nama: "LEMONKUH 100ml SR12",
+        harga: "Rp 84.000",
+        deskripsi: "membantu menurunkan berat badan, meningkatkan daya tahan tubuh, mencegah sembelit, menjaga kesehatan kulit, dan berpotensi mencegah penyakit jantung serta batu ginja.",
+        gambar: "lemonku100.jpg",
+        pesan: "Saya ingin memesan Lemonkuh 100ml SR12"
+    },
+    {
+        nama: "LIGHTENING BODY LOTION",
+        harga: "Rp 63.000",
+        deskripsi: "membantu memperbaiki warna dan tekstur kulit, serta memperbaiki dan mengisi kembali lapisan pelindung kulit.",
+        gambar: "lightening body lotion.jpg",
+        pesan: "Saya ingin memesan Lightening Body Lotion"
+    },
+    {
+        nama: "LIGHTENING SERUM",
+        harga: "Rp 157.000",
+        deskripsi: "Membantu melembabkan kulit wajah. Membantu kulit wajah tampak lebih cerah.",
+        gambar: "lighteningserum.jpg",
+        pesan: "Saya ingin memesan Lightening Serum"
+    },
+    {
+        nama: "LIP CARE CHERRY",
+        harga: "Rp 37.000",
+        deskripsi: "Memberikan kelembapan pada bibir yang kering dan pecah-pecah dan Mengurangi peradangan dan iritasi pada bibir.",
+        gambar: "lip care cherry.jpg",
+        pesan: "Saya ingin memesan Lip Care Cherry"
+    },
+    {
+        nama: "LIP CARE NATURAL SR12",
+        harga: "Rp 37.000",
+        deskripsi: "Merawat bibir kering & pecah - pecah serta sebagai pelembab alami bibir.",
+        gambar: "lip care natural.jpg",
+        pesan: "Saya ingin memesan Lip Care Natural SR12"
+    },
+    {
+        nama: "LIPCREAM MATTE CHERISH ME",
+        harga: "Rp 68.000",
+        deskripsi: "Melembabkan, Melindungi kulit bibir dari sinar UV, Mencerahkan warna bibir, Mengandung Vit.",
+        gambar: "lip cream matte cherish me.jpg",
+        pesan: "Saya ingin memesan Lipcream Matte Cherish Me"
+    },
+    {
+        nama: "LIP CREAM MATTE NUDE BERRY",
+        harga: "Rp 68.000",
+        deskripsi: "Mengandung Vitamin E yang melindungi bibir dari radikal bebas. Meningkatkan kelembutan dan kekenyalan bibir.",
+        gambar: "lip cream matte nude berry.jpg",
+        pesan: "Saya ingin memesan Lip Cream Matte Nude Berry"
+    },
+    {
+        nama: "LIP CREAM SR04",
+        harga: "Rp 100.000",
+        deskripsi: "Mengandung Vitamin E yang melindungi bibir dari radikal bebas. Meningkatkan kelembutan dan kekenyalan bibir.",
+        gambar: "lip cream sr04.jpg",
+        pesan: "Saya ingin memesan Lip Cream SR04"
+    },
+    {
+        nama: "LIP GLOW MAGIC",
+        harga: "Rp 63.000",
+        deskripsi: "menciptakan berbagai tampilan, mulai dari natural hingga glamor.",
+        gambar: "lip glow magic.jpg",
+        pesan: "Saya ingin memesan Lip Glow Magic"
+    },
+    {
+        nama: "LIP MOUSSE CREAM",
+        harga: "Rp 68.000",
+        deskripsi: "memberikan warna pada bibir, produk ini juga dapat membantu menjaga kelembapan serta melindungi bibir dari faktor eksternal.",
+        gambar: "lip mouse cream.jpg",
+        pesan: "Saya ingin memesan Lip Mousse Cream"
+    },
+    {
+        nama: "LIP TINT GEL SWEET ORANGE",
+        harga: "Rp 63.000",
+        deskripsi: "memberikan warna alami pada bibir dengan hasil yang tahan lama dan membantu menjaga kelembapan bibir.",
+        gambar: "lip tint gel sweet orange.jpg",
+        pesan: "Saya ingin memesan Lip Tint Gel Sweet Orange"
+    },
+    {
+        nama: "LULUR REMPAH BENGKOANG",
+        harga: "Rp 52.000",
+        deskripsi: "mencerahkan kulit, mengangkat sel kulit mati, melembapkan, menghaluskan, dan membersihkan kulit tubuh.",
+        gambar: "lulur rempah bengkoang.jpg",
+        pesan: "Saya ingin memesan Lulur Rempah Bengkoang"
+    },
+    {
+        nama: "MADU HUTAN BADUY SR12",
+        harga: "Rp 115.000",
+        deskripsi: "meningkatkan daya tahan tubuh, membantu penyembuhan luka, dan memiliki sifat antibakteri dan anti-inflamasi.",
+        gambar: "madu hutan baduy.jpg",
+        pesan: "Saya ingin memesan Madu Hutan Baduy SR12"
+    },
+    {
+        nama: "MASSAGE OIL BULUS",
+        harga: "Rp 110.000",
+        deskripsi: "melembapkan kulit, menyamarkan bekas luka dan stretch marks, serta mempercepat penyembuhan luka.",
+        gambar: "massage oil bulus.jpg",
+        pesan: "Saya ingin memesan Massage Oil Bulus"
+    },
+    {
+        nama: "MATTE COVER NATURAL LOOSE POWDER",
+        harga: "Rp 100.000",
+        deskripsi: "Membantu menutupi bekas jerawat & Flek Hitam pada wajah.",
+        gambar: "matte cover natural loose powder.jpg",
+        pesan: "Saya ingin memesan Matte Cover Natural Loose Powder"
+    },
+    {
+        nama: "MAXI PROPOLIS SR12",
+        harga: "Rp 136.000",
+        deskripsi: "meningkatkan daya tahan tubuh, sebagai antibakteri dan antimikroba, anti-inflamasi, antioksidan, serta menjaga kesehatan hati dan menurunkan kadar glukosa darah.",
+        gambar: "maxi propolis.jpg",
+        pesan: "Saya ingin memesan Maxi Propolis SR12"
+    },
+    {
+        nama: "MICELLAR WATER",
+        harga: "Rp 58.000",
+        deskripsi: "membantu membersihkan makeup dan kotoran pada wajah, menjaga kelembaban alami kulit, serta membuat kulit terasa bersih dan segar tanpa rasa berminyak.",
+        gambar: "micelarwater.jpg",
+        pesan: "Saya ingin memesan Micellar Water"
+    },
+    {
+        nama: "MILK CLEANSER TUBE",
+        harga: "Rp 81.000",
+        deskripsi: "Mengandung Aloe Vera untuk melembabkan dan mencegah wajah kering.",
+        gambar: "milk tube.jpg",
+        pesan: "Saya ingin memesan Milk Cleanser Tube"
+    },
+    {
+        nama: "MILKY RICE SOAP",
+        harga: "Rp 33.000",
+        deskripsi: "Mengandung Aloe Vera untuk melembabkan dan mencegah wajah kering.",
+        gambar: "milk tube.jpg",
+        pesan: "Saya ingin memesan Milk Cleanser Tube"
+    },
+    {
+        nama: "SUSU GO MILKU GOLD",
+        harga: "Rp 142.000",
+        deskripsi: "SR12 GoMilku merupakan susu kambing etawa dilengkapi nutrisi khusus.",
+        gambar: "gomilku gold.jpg",
+        pesan: "Saya ingin memesan Susu GoMilku Gold"
+    },
+    {
+        nama: "SHEET MASK ACNE",
+        harga: "Rp 73.000",
+        deskripsi: "Menghilangkan noda hitam pada wajah. Menyerap minyak berlebih pada wajah. Mencerahkan dan menutrisi kulit wajah. Melindungi kulit dari paparan sinar matahari.",
+        gambar: "sheet mask acne.jpg",
+        pesan: "Saya ingin memesan Sheet Mask Acne"
+    },
+    {
+        nama: "MISS MANJA SPRAY & MISS MANJA WASH",
+        harga: "Rp 85.000",
+        deskripsi: "membantu membersihkan area kewanitaan, mengurangi keputihan, gatal-gatal, dan bau tidak sedap.",
+        gambar: "miss manja.jpg",
+        pesan: "Saya ingin memesan Miss Manja Spray & Wash"
+    },
+    {
+        nama: "MUGWORT CLAYMASK",
+        harga: "Rp 75.000",
+        deskripsi: "membantu membersihkan pori-pori, menyejukkan kulit, menjaga skin barrier, melembutkan dan menghaluskan kulit, serta membantu mengatasi masalah jerawat dan bekasnya.",
+        gambar: "mughwort mask.jpg",
+        pesan: "Saya ingin memesan Mugwort Claymask"
+    },
+    {
+        nama: "NAIL POLISH PEEL OFF MAROON",
+        harga: "Rp 63.000",
+        deskripsi: "Untuk menghias, memperindah dan melindungi lempeng permukaan kuku.",
+        gambar: "nail polish peel off maroon.jpg",
+        pesan: "Saya ingin memesan Nail Polish Peel Off Maroon"
+    },
+    {
+        nama: "KRASNY NIGHT CREAM MARKISA",
+        harga: "Rp 89.000",
+        deskripsi: "Menghaluskan & mencerahkan kulit secara bertahap.",
+        gambar: "night markisa.jpg",
+        pesan: "Saya ingin memesan Krasny Night Cream Markisa"
+    },
+    {
+        nama: "PASTA GIGI SIWAK & SIRIH",
+        harga: "Rp 46.000",
+        deskripsi: "membantu membersihkan gigi, menyegarkan mulut, mencegah bau mulut, dan membantu memutihkan gigi.",
+        gambar: "pasta gigi siwak.jpg",
+        pesan: "Saya ingin memesan Pasta Gigi Siwak & Sirih"
+    },
+    {
+        nama: "PERFECT COVER BB CREAM NATURAL BEIGE",
+        harga: "Rp 65.000",
+        deskripsi: "Membantu menutup dan meratakan warna kulit, membantu melembabkan serta menghidrasi dan membantu melindungi kulit dari paparan sinar matahari.",
+        gambar: "perfect cover bb cream natural beige.jpg",
+        pesan: "Saya ingin memesan Perfect Cover BB Cream Natural Beige"
+    },
+    {
+        nama: "PERFECT CREAM BLUSH PEACH",
+        harga: "Rp 50.000",
+        deskripsi: "Menghidrasi dan berfungsi sebagai pelembap yang lembut.",
+        gambar: "perfect cream blush peach.jpg",
+        pesan: "Saya ingin memesan Perfect Cream Blush Peach"
+    },
+    {
+        nama: "REVITALIZING SERUM",
+        harga: "Rp 102.000",
+        deskripsi: "mengatasi bopeng dan bekas jerawat, melembabkan kulit, meregenerasi sel kulit, dan mengencangkan kulit.",
+        gambar: "revitalizingserum.jpg",
+        pesan: "Saya ingin memesan Revitalizing Serum"
+    },
+    {
+        nama: "RICE SOAP",
+        harga: "Rp 33.000",
+        deskripsi: "mengangkat minyak berlebih, mengecilkan pori-pori, meregenerasi sel kulit, serta mencerahkan dan melembapkan kulit.",
+        gambar: "rice soap.jpg",
+        pesan: "Saya ingin memesan Rice Soap"
+    },
+    {
+        nama: "NATURE ROSE WATER 100ML",
+        harga: "Rp 63.000",
+        deskripsi: "membantu make up lebih tahan lama, dilengkapi Air Mawar yang mengandung vitamin A, C, dan E.",
+        gambar: "rosewater.jpg",
+        pesan: "Saya ingin memesan Nature Rose Water 100ML"
+    },
+    {
+        nama: "NATURE ROSE WATER 60ML",
+        harga: "Rp 48.000",
+        deskripsi: "membantu make up lebih tahan lama, dilengkapi Air Mawar yang mengandung vitamin A, C, dan E.",
+        gambar: "rosewaterkecil.jpg",
+        pesan: "Saya ingin memesan Nature Rose Water 60ML"
+    },
+    {
+        nama: "SALIMAH SLIM",
+        harga: "Rp 73.000",
+        deskripsi: "mengurangi lemak tubuh, mengecilkan perut buncit, membantu mengurangi gelambir pada wanita paska melahirkan, membantu melancarkan buang air besar.",
+        gambar: "salimah slim.jpg",
+        pesan: "Saya ingin memesan Salimah Slim"
+    },
+    {
+        nama: "SCRUB CREAM COFFE",
+        harga: "Rp 52.000",
+        deskripsi: "Membersihkan minyak, kotoran dan sel kulit mati.",
+        gambar: "scrub cream coffe.jpg",
+        pesan: "Saya ingin memesan Scrub Cream Coffee"
+    },
+    {
+        nama: "NATURE SECRET WATER 60ml",
+        harga: "Rp 48.000",
+        deskripsi: "Membantu makeup lebih tahan lama. - Membantu melembabkan kulit wajah.",
+        gambar: "secretwater.jpg",
+        pesan: "Saya ingin memesan Nature Secret Water 60ml"
+    },
+    {
+        nama: "NATURE SCRET WATER 100ml",
+        harga: "Rp 63.000",
+        deskripsi: "Membantu makeup lebih tahan lama. - Membantu melembabkan kulit wajah.",
+        gambar: "secretwater.jpg",
+        pesan: "Saya ingin memesan Nature Secret Water 100ml"
+    },
+    {
+        nama: "SERUM RETINOL",
+        harga: "Rp 157.000",
+        deskripsi: "membantu mengatasi jerawat, mencegah penuaan dini, mencerahkan kulit, dan menyamarkan noda bekas jerawat.",
+        gambar: "serum retinol.jpg",
+        pesan: "Saya ingin memesan Serum Retinol"
+    },
+    {
+        nama: "KRASNY SERUM MARKISA",
+        harga: "Rp 136.000",
+        deskripsi: "membantu menutrisi, melembapkan, dan melindungi kulit dari berbagai faktor eksternal, seperti polusi dan paparan sinar matahari.",
+        gambar: "serummarkisa.jpg",
+        pesan: "Saya ingin memesan Krasny Serum Markisa"
+    },
+    {
+        nama: "SHAMPO & CONDITIONER DAUN BIDARA",
+        harga: "Rp 115.500",
+        deskripsi: "Mengandung Daun Bidara dan Minyak Kemiri Membantu mempercepat pertumbuhan rambut.",
+        gambar: "shampo daun bidara.jpg",
+        pesan: "Saya ingin memesan Shampoo & Conditioner Daun Bidara"
+    },
+    {
+        nama: "SHEET MASK ACNE",
+        harga: "Rp 69.000",
+        deskripsi: "Menghilangkan noda hitam pada wajah. Menyerap minyak berlebih pada wajah. Mencerahkan dan menutrisi kulit wajah. Melindungi kulit dari paparan sinar matahari.",
+        gambar: "sheet mask acne.jpg",
+        pesan: "Saya ingin memesan Sheet Mask Acne"
+    },
+    {
+        nama: "SHEET MASK BRIGHTENING",
+        harga: "Rp 63.000",
+        deskripsi: "Menghilangkan noda hitam pada wajah. Menyerap minyak berlebih pada wajah. Mencerahkan dan menutrisi kulit wajah. Melindungi kulit dari paparan sinar matahari.",
+        gambar: "sheet mask brightening.jpg",
+        pesan: "Saya ingin memesan Sheet Mask Brightening"
+    },
+    {
+        nama: "SUNBLOCK",
+        harga: "Rp 68.000",
+        deskripsi: "melindungi kulit dari paparan sinar matahari.",
+        gambar: "sunblock.jpg",
+        pesan: "Saya ingin memesan Sunblock"
+    },
+    {
+        nama: "SUN CARE LOTION",
+        harga: "Rp 66.000",
+        deskripsi: "Melembabkan dan melindungi kulit wajah dari sinar UVA dan UVB selama 3 jam.",
+        gambar: "suncare.jpg",
+        pesan: "Saya ingin memesan Sun Care Lotion"
+    },
+    {
+        nama: "TONER BHA",
+        harga: "Rp 84.000",
+        deskripsi: "Membersihkan dan menyegarkan kulit wajah. Membantu melembabkan dan menutrisi kulit wajah.",
+        gambar: "toner bha.jpg",
+        pesan: "Saya ingin memesan Toner BHA"
+    },
+    {
+        nama: "TONER AHA",
+        harga: "Rp 84.000",
+        deskripsi: "Membersihkan dan menyegarkan kulit wajah. Membantu melembabkan dan menutrisi kulit wajah.",
+        gambar: "toner aha.jpg",
+        pesan: "Saya ingin memesan Toner AHA"
+    },
+    {
+        nama: "GLOUW MILL",
+        harga: "Rp 157.000",
+        deskripsi: "meningkatkan kesehatan kulit, Melembabkan & Mencegah Kulit Kering.",
+        gambar: "GlouwMill.jpg",
+        pesan: "Saya ingin memesan Glouw Mill"
+    },
+    {
+        nama: "BOOPERI SR12",
+        harga: "Rp 71.000",
+        deskripsi: "parfum yang memberikan keharuman pada tubuh. Produk ini tersedia dalam berbagai varian aroma dan diklaim tahan lama.",
+        gambar: "parfum.jpg",
+        pesan: "Saya ingin memesan Booperi SR12"
+    },
+    {
+        nama: "SHIYOU COLLAGEN",
+        harga: "Rp 168.000",
+        deskripsi: "mencerahkan kulit, mencegah keriput, menjaga elastisitas kulit, dan melancarkan pencernaan.",
+        gambar: "shiyou.jpg",
+        pesan: "Saya ingin memesan Shiyou Collagen"
+    },
+    {
+        nama: "MANJAKANI",
+        harga: "Rp 84.000",
+        deskripsi: "membantu membersihkan organ intim, mengatasi keputihan, membantu merapatkan organ intim.",
+        gambar: "manjasr12.jpg",
+        pesan: "Saya ingin memesan Manjakani"
+    },
+    {
+        nama: "V-CO OIL 250ml",
+        harga: "Rp 97.000",
+        deskripsi: "meningkatkan kekebalan tubuh, menjaga kesehatan jantung, membantu menurunkan berat badan, menjaga kesehatan kulit dan rambut, serta membantu proses pencernaan.",
+        gambar: "vcoil250.jpg",
+        pesan: "Saya ingin memesan V-CO Oil 250ml"
+    },
+    {
+        nama: "V-CO OIL 100ml",
+        harga: "Rp 55.000",
+        deskripsi: "meningkatkan kekebalan tubuh, menjaga kesehatan jantung, membantu menurunkan berat badan, menjaga kesehatan kulit dan rambut, serta membantu proses pencernaan.",
+        gambar: "vcoil100.jpg",
+        pesan: "Saya ingin memesan V-CO Oil 100ml"
+    },
+    {
+        nama: "SKIN SANE BODY SERUM",
+        harga: "Rp 82.000",
+        deskripsi: "melembabkan, menghaluskan, mencerahkan kulit, serta membantu mengatasi masalah jerawat dan noda hitam.",
+        gambar: "skinsane1.jpg",
+        pesan: "Saya ingin memesan V-CO Oil Kapsul"
+    },
+     {
+        nama: "SKIN SANE BODY SERUM",
+        harga: "Rp 82.000",
+        deskripsi: "melembabkan, menghaluskan, mencerahkan kulit, serta membantu mengatasi masalah jerawat dan noda hitam.",
+        gambar: "skinsane2.jpg",
+        pesan: "Saya ingin memesan V-CO Oil Kapsul"
+    },
+     {
+        nama: "SKIN SANE BODY SERUM",
+        harga: "Rp 82.000",
+        deskripsi: "melembabkan, menghaluskan, mencerahkan kulit, serta membantu mengatasi masalah jerawat dan noda hitam.",
+        gambar: "skinsane3.jpg",
+        pesan: "Saya ingin memesan V-CO Oil Kapsul"
+    },
+     {
+        nama: "SKIN SANE BODY SCRUB",
+        harga: "Rp 87.000",
+        deskripsi: "melembabkan, menghaluskan, mencerahkan kulit, serta membantu mengatasi masalah jerawat dan noda hitam.",
+        gambar: "scrub1.jpg",
+        pesan: "Saya ingin memesan V-CO Oil Kapsul"
+    },
+     {
+        nama: "SKIN SANE BODY SCRUB",
+        harga: "Rp 87.000",
+        deskripsi: "melembabkan, menghaluskan, mencerahkan kulit, serta membantu mengatasi masalah jerawat dan noda hitam.",
+        gambar: "scrub2.jpg",
+        pesan: "Saya ingin memesan V-CO Oil Kapsul"
+    },
+     {
+        nama: "SKIN SANE BODY SCRUB",
+        harga: "Rp 101.000",
+        deskripsi: "melembabkan, menghaluskan, mencerahkan kulit, serta membantu mengatasi masalah jerawat dan noda hitam.",
+        gambar: "scrub3.jpg",
+        pesan: "Saya ingin memesan V-CO Oil Kapsul"
+    },
+    
+
+    ];
+       let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function tampilkanProduk(data) {
+      productList.innerHTML = "";
+      if (data.length === 0) {
+        notFound.textContent = "Produk tidak ditemukan.";
+        return;
+      }
+      notFound.textContent = "";
+      data.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${p.gambar}" alt="${p.nama}">
+          <h3>${p.nama}</h3>
+          <p>${p.harga}</p>
+          <div class="btn-group">
+            <a href="https://wa.me/${waNumber}?text=Halo%20admin%2C%20${encodeURIComponent(p.pesan)}" class="btn btn-beli">Beli</a>
+            <button class="btn btn-keranjang" onclick="addToCart('${p.nama}', '${p.harga}', '${p.gambar}')">Keranjang</button>
+          </div>
+        `;
+        productList.appendChild(card);
+      });
+    }
+
+    function addToCart(nama, harga, gambar) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ nama, harga, gambar });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${nama} telah ditambahkan ke keranjang!`);
+    }
+
+    function searchItem() {
+      const keyword = document.getElementById("searchInput").value.toLowerCase();
+      const hasil = products.filter(p => p.nama.toLowerCase().includes(keyword));
+      tampilkanProduk(hasil);
+    }
+
+    // Muat awal semua produk
+    tampilkanProduk(products);
+  </script>
+</body>
+</html>
